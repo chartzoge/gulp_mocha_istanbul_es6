@@ -7,12 +7,14 @@ const isparta = require("isparta");
 const mocha = require("gulp-mocha");
 const istanbul = require("gulp-istanbul");
 
+const SOURCE_CODE_PATH = "./server/**/*.js";
+
 gulp.task("clean", function () {
     return del(["./coverage"]);
 });
 
 gulp.task("coverage", function () {
-    return  gulp.src(["./client/**/*.js"])
+    return  gulp.src([SOURCE_CODE_PATH])
     .pipe(istanbul({
         instrumenter: isparta.Instrumenter,
         includeUntested: true
@@ -28,7 +30,7 @@ gulp.task("test", function () {
 });
 
 gulp.task("report", function () {
-    gulp.src(["./client/**/*.js"], { read: false })
+    gulp.src([SOURCE_CODE_PATH], { read: false })
     .pipe(istanbul.writeReports());
 });
 

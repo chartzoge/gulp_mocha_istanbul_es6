@@ -1,7 +1,7 @@
 "use strict";
 
 var expect = require("chai").expect;
-var testMe = require("../client/test_me");
+var testMe = require("../server/test_me");
 
 describe("Meta test", () => {
     it("can test me", function () {
