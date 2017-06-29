@@ -18,7 +18,7 @@ gulp.task("clean", function () {
 });
 
 gulp.task("coverage", function () {
-    return  gulp.src([SOURCE_CODE_PATH])
+    return gulp.src([SOURCE_CODE_PATH])
     .pipe(debug({ title: "debug" }))
     .pipe(istanbul({
         instrumenter: isparta.Instrumenter,
@@ -34,7 +34,7 @@ gulp.task("test", function () {
 });
 
 gulp.task("report", function () {
-    gulp.src([SOURCE_CODE_PATH], { read: false })
+    return gulp.src([SOURCE_CODE_PATH], { read: false })
     .pipe(debug({ title: "debug" }))
     .pipe(istanbul.writeReports());
 });
