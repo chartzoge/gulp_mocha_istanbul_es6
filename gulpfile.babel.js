@@ -19,9 +19,7 @@ gulp.task("coverage", function () {
         instrumenter: isparta.Instrumenter,
         includeUntested: true
     }))
-    .pipe(istanbul.hookRequire(null, null, {
-        verbose: true
-    }));
+    .pipe(istanbul.hookRequire());
 });
 
 gulp.task("test", function () {
